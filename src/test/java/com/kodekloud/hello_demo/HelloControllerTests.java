@@ -29,7 +29,7 @@ public class HelloControllerTests {
     public void welcome_ok() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(equalTo("Hello, KodeKloud community!")));
+                .andExpect(content().string(equalTo("Hello, Ashen!")));
     }
 
     @Test
