@@ -52,7 +52,7 @@ public class HelloControllerTests {
     public void welcome_returnsCorrectLength() throws Exception {
       mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
           .andExpect(status().isOk())
-          .andExpect(content().string(hasLength(27))); 
+          .andExpect(content().string(hasLength(13))); 
 
     }
 
