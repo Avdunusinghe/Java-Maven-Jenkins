@@ -23,7 +23,22 @@ pipeline {
         stage('Unit Test') {
             steps {
                 sh "mvn test"
+		        junit stdioRetention: '', testResults: 'target/surefire-reports/TEST-*.xml'
             }
         }
+
+       stage('Local Deployment') {
+            steps {
+                sh """ java -jar target/hello-demo-*.jar > /dev/null & """
+            }
+        }
+    
+        stage('Integration Testing') {
+            steps {
+                sh "sleep 50s"
+                sh """ curl -s http://localhost:6767/hello | grep -i "Hello, KodeKloud community!" """
+            }
+        }
+       
     }
 }
