@@ -35,8 +35,8 @@ pipeline {
     
         stage('Integration Testing') {
             steps {
-                sh "sleep 50s"
-                sh """ curl -s http://localhost:6767/hello | grep -i "Hello, KodeKloud community!" """
+                sh "sleep ${params.SLEEP_TIMER}"
+                sh """ curl -s http://localhost:${params.APPLICATION_PORT}/hello | grep -i "Hello, Ashen!" """
             }
         }
        
