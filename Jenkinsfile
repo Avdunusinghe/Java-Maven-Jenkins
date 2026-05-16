@@ -13,6 +13,14 @@ pipeline {
             }
         }
 
+		 stage('Check Java') {
+            steps {
+                sh 'java -version'
+                sh 'javac -version'
+                sh 'echo $JAVA_HOME'
+            }
+        }
+
         stage('Build') {
             steps {
                 git branch: 'main', url: 'https://github.com/Avdunusinghe/Java-Maven-Jenkins.git'
